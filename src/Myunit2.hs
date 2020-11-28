@@ -24,13 +24,10 @@ data Avengers = THOR | VISION | HULK | IRONMAN
 instance Eq Avengers where
     (==) :: Avengers -> Avengers -> Bool
     (==) THOR THOR = True
-    (==) THOR _ = False
     (==) VISION VISION = True
-    (==) VISION _ = False
     (==) HULK HULK = True
-    (==) HULK _ = False
     (==) IRONMAN IRONMAN = True
-    (==) IRONMAN _ = False
+    (==) _ _ = False
 
 instance Ord Avengers where
     compare :: Avengers -> Avengers -> Ordering
@@ -70,3 +67,5 @@ cycleAvengers :: Avengers -> Avengers
 cycleAvengers avenger
     | avenger == maxBound = minBound 
     | otherwise = succ avenger
+
+
